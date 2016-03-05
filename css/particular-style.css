@@ -1,0 +1,668 @@
+/* CAROUSEL HOME */
+
+.carousel {
+	height:65%;
+}
+
+.item,
+.active,
+.carousel-inner {
+	height:100%;
+}
+
+.fill {
+	width:100%;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+}
+
+
+/* SOBRE MÍ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
+
+* {
+  box-sizing: border-box;
+}
+
+// Sample styles
+
+.timeline {
+  margin-top: 2em;
+}
+
+
+// Timeline
+// -----------------------------------
+
+// Variables
+
+$timeline__color: #eee;
+$timeline__itemWidth: 8;
+$timeline__itemPadding: 1;
+$timeline__itemDot: .4375;
+$timeline__topDotWidth: 2.0625;
+$timeline__topDotShine: .25;
+$timeline__bottomtDotWidth: .6875;
+
+// Container
+
+.timeline > ul {
+  display: inline-block;
+  position: relative;
+  // Nudge the whole thing into the middle
+  left: 50%;
+  border-left: 1px solid $timeline__color;
+  // Negate before-dots' height
+  margin-top: ($timeline__topDotWidth + $timeline__topDotShine )+ em;
+  // Add a top-padding to match bottom margin
+  padding: 0;
+  padding-top: ($timeline__itemWidth/2) + em;
+  color: $timeline__color;
+
+  // Add dots to top & bottom
+  &:before,
+  &:after {
+    content:"";
+    background: $timeline__color;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    left:  -($timeline__topDotWidth/2) + em;
+    top:   -$timeline__topDotWidth + em;
+    width:  $timeline__topDotWidth + em;
+    height: $timeline__topDotWidth + em;
+    box-shadow: 0 0 0 $timeline__topDotShine + em rgba(#eee,0.3);
+  }
+  &:after {
+    bottom: -$timeline__bottomtDotWidth + em;
+    left:   -($timeline__bottomtDotWidth/2) + em;
+    width:   $timeline__bottomtDotWidth + em;
+    height:  $timeline__bottomtDotWidth + em;
+  }
+}
+
+// Timeline items
+
+.timeline li {
+  position: relative;
+  width: $timeline__itemWidth +em;
+  // Ditch the list for before-element
+  list-style: none;
+  // Space for the connectin line
+  margin: 0 0 ($timeline__itemWidth/2) + em $timeline__itemWidth +em;
+  padding: 0;
+  padding-left: $timeline__itemPadding + em;
+  &:before,
+  &:after {
+    content:"";
+    background: $timeline__color;
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    left: -$timeline__itemWidth +em;
+    top: 50%;
+    width: $timeline__itemWidth +em;
+    height: 1px;
+  }
+  &:after {
+    left: -$timeline__itemWidth - $timeline__itemDot / 2 +em;
+    top: 50%;
+    transform: translateY(-50%);
+    height: $timeline__itemDot + em;
+    width: $timeline__itemDot + em;
+    border-radius: 100%;
+  }
+}
+
+.timeline li p {
+  margin: 0;
+}
+
+.timeline__date {
+  font-weight: 700;
+  margin-bottom: .25em;
+}
+
+// Item # modifiers
+
+.timeline li {
+    &:nth-child(2n) {
+    left: -($timeline__itemWidth*2)-$timeline__itemPadding +em;
+    margin-left:0;
+    padding-left: 0;
+    text-align: right;
+    &:before {
+      left: ($timeline__itemWidth + $timeline__itemPadding) +em;
+    }
+    &:after {
+      left: ($timeline__itemWidth*2 + $timeline__itemPadding  - $timeline__itemDot/2) +em;
+      top: 50%;
+    }
+  }
+  &:last-child {
+    margin-bottom: ($timeline__itemWidth/2) + em;
+  }
+}
+
+
+// JS-states
+
+.js .timeline li { 
+  p,
+  &:after {
+    opacity: 0;
+  }
+  &:before {
+    width: 0;
+  }
+}
+
+.js .timeline .timeline--active {
+  p {
+  opacity: 1;
+  transition: opacity .5s .5s ease-in;
+  }
+  &:before {
+    width: $timeline__itemWidth +em;
+    transition: width 0.5s .25s ease-in;
+  }
+  &:after {
+    opacity: 1;
+    transition: opacity 0.25s ease-in;
+  }
+}
+
+#extracto{
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+}
+
+.progress-bar-success{
+    background-color: #303030;
+}
+
+#progress-barMAC{
+    height: 100%;
+    width: 95%;
+    -webkit-animation: progressFill 2s ease-in-out;
+       -moz-animation: progressFill 2s ease-in-out;
+        -ms-animation: progressFill 2s ease-in-out;
+         -o-animation: progressFill 2s ease-in-out;
+            animation: progressFill 2s ease-in-out;
+}
+@-moz-keyframes progressFill {
+    from { width: 0%; }
+    to   { width: 95%; }
+}
+@-webkit-keyframes progressFill {
+    from { width: 0%; }
+    to   { width: 95%; }
+}
+@-ms-keyframes width {
+    from { width: 0%; }
+    to   { width: 95%; }
+}
+@-o-keyframes width {
+    from { width: 0%; }
+    to   { width: 95%; }
+}
+@keyframes progressFill {
+    from { width: 0%; }
+    to   { width: 95%; }
+}
+
+
+#progress-barPHOTO{
+    height: 100%;
+    width: 80%;
+    -webkit-animation: progressFillPHOTO 2s ease-in-out;
+       -moz-animation: progressFillPHOTO 2s ease-in-out;
+        -ms-animation: progressFillPHOTO 2s ease-in-out;
+         -o-animation: progressFillPHOTO 2s ease-in-out;
+            animation: progressFillPHOTO 2s ease-in-out;
+}
+@-moz-keyframes progressFillPHOTO {
+    from { width: 0%; }
+    to   { width: 80%; }
+}
+@-webkit-keyframes progressFillPHOTO {
+    from { width: 0%; }
+    to   { width: 80%; }
+}
+@-ms-keyframes width {
+    from { width: 0%; }
+    to   { width: 80%; }
+}
+@-o-keyframes width {
+    from { width: 0%; }
+    to   { width: 80%; }
+}
+@keyframes progressFillPHOTO {
+    from { width: 0%; }
+    to   { width: 80%; }
+}
+
+#progress-barILU{
+    height: 100%;
+    width: 90%;
+    -webkit-animation: progressFillILU 2s ease-in-out;
+       -moz-animation: progressFillILU 2s ease-in-out;
+        -ms-animation: progressFillILU 2s ease-in-out;
+         -o-animation: progressFillILU 2s ease-in-out;
+            animation: progressFillILU 2s ease-in-out;
+}
+@-moz-keyframes progressFillILU {
+    from { width: 0%; }
+    to   { width: 90%; }
+}
+@-webkit-keyframes progressFillILU {
+    from { width: 0%; }
+    to   { width: 90%; }
+}
+@-ms-keyframes width {
+    from { width: 0%; }
+    to   { width: 90%; }
+}
+@-o-keyframes width {
+    from { width: 0%; }
+    to   { width: 90%; }
+}
+@keyframes progressFillILU {
+    from { width: 0%; }
+    to   { width: 90%; }
+}
+
+#progress-barWEB{
+    height: 100%;
+    width: 65%;
+    -webkit-animation: progressFillWEB 2s ease-in-out;
+       -moz-animation: progressFillWEB 2s ease-in-out;
+        -ms-animation: progressFillWEB 2s ease-in-out;
+         -o-animation: progressFillWEB 2s ease-in-out;
+            animation: progressFillWEB 2s ease-in-out;
+}
+@-moz-keyframes progressFillWEB {
+    from { width: 0%; }
+    to   { width: 65%; }
+}
+@-webkit-keyframes progressFillWEB {
+    from { width: 0%; }
+    to   { width: 65%; }
+}
+@-ms-keyframes width {
+    from { width: 0%; }
+    to   { width: 65%; }
+}
+@-o-keyframes width {
+    from { width: 0%; }
+    to   { width: 65%; }
+}
+@keyframes progressFillWEB {
+    from { width: 0%; }
+    to   { width: 65%; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aptitudesGRA{
+    text-align: center;
+}
+
+#aptitudesWEB{
+    text-align: center;
+}
+
+#aptitudesAD{
+    text-align: center;
+}
+
+
+
+/*ICONO PROYECTOS*/
+.glyphicon-bookmark{
+    font-size: 28px;
+}
+
+/*ICONO CONTACTO*/
+.glyphicon-envelope{
+    font-size: 28px;
+}
+
+/*ICONO SOBRE MÍ*/
+.glyphicon-user{
+    font-size: 28px;
+}
+
+
+
+/*CONTACTO*/
+
+.form-control:focus {
+    border-color: #E74062;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(231, 64, 98, 0.2);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(231, 64, 98, 0.2);
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #303030;
+    border:none;
+    width: 100%;
+}
+
+    .btn-primary:hover {
+        color: #ffffff;
+        background-color: #E74062;
+        border:none;
+    }
+
+#imgJESS{
+    background-image: url('/images/yo1.png');
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+    #imgJESS:hover{
+        background-image: url('/images/yo2.png');
+    }
+
+/* PROYECTOS */
+
+/* HOVER EFFECT
+================================================== */
+.view .mask,.view .content {
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+   text-align:center;
+}
+.view img {
+   position: relative;
+}
+.view a.link {
+  padding:0;
+  margin:0;
+  height:44px;
+  width:44px;
+  display: block;/**/
+  float:left;
+  text-decoration: none;
+  background-color: #fff;
+  background-image: url(/images/linkico.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+}
+.view a.zoom {
+  padding:0;
+  margin:0;
+  height:44px;
+  width:44px;
+  display: block;/**/
+  float:left;
+  text-decoration: none;
+  background-color: #fff;
+  background-image: url(/images/zoomico.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.view a.zoom:hover, .view a.link:hover  {
+  background-color: #E74062;
+}
+
+.hover-item img {
+   -webkit-transition: all 0.5s linear;
+   -moz-transition: all 0.5s linear;
+   -o-transition: all 0.5s linear;
+   -ms-transition: all 0.5s linear;
+   transition: all 0.5s linear;
+}
+.hover-item .abs {
+  position:absolute;
+  bottom:-47px;
+  left:0px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.hover-item:hover .abs {
+  bottom:0px;
+  left:0px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.portfolio-item .hover-item .abs {
+  position:absolute;
+  bottom:-47px;
+  left:0px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.portfolio-item .hover-item:hover .abs {
+  bottom:0px;
+  left:0px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.blog-item .hover-item .abs {
+  position:absolute;
+  bottom:-47px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.blog-item .hover-item:hover .abs {
+  bottom:0px;
+    transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.hover-item:hover {
+      transition:all 0.5s; 
+  -webkit-transition: all 0.5s; 
+  -o-transition: all 0.5s; 
+  -moz-transition: all 0.5s; 
+  -ms-transition: all 0.5s;
+}
+.hover-item:hover .item-caption, .hover-item:hover .lw-item-caption-container a {
+      transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+.hover-item:hover .lw-item-caption-container a:hover {
+      transition:all 0.3s; 
+  -webkit-transition: all 0.3s; 
+  -o-transition: all 0.3s; 
+  -moz-transition: all 0.3s; 
+  -ms-transition: all 0.3s;
+}
+
+.view-first a.info {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.hover-item{
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-item:hover .mask {
+    opacity: 0.7;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);
+}
+
+.hover-item .mask {
+    background-color: #eee;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.hover-item:hover .text {
+    opacity: 1;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);
+}
+
+.hover-item .text {
+    padding-right: 10px;
+    background:none;
+    color: black;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    text-align: right;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.modal-dialog {
+  width: 750px;
+}
+
+
+/* BRANDING */
+.backgroundgrey{
+    background-color:#eee;
+}
+
+.paddingBRA {
+    padding: 10px;
+}
+
+.paddingBRAresumen{
+    padding: 25px;
+}
+
+/* YO NUNCA */
+
+.fucsiayonunca{
+    background-color:#303030;
+    width: 100px;
+    height: 100px
+}
+
+.naranjayonunca{
+    background-color:red;
+    width: 100px;
+    height: 100px
+}
+
+.rosaback{
+  background-color: #E74062;
+  padding: 5px;
+}
+
+
+.modal-img{
+  width: 100%;
+}
+
+
+
+
+/* MAGAZINE */
+
+/* helpers */
+
+.t {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.tc {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.rel {
+    position: relative;
+}
+
+/* book */
+
+.book {
+    margin: 0 auto;
+    width: 90%;
+    height: 90%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.book .page {
+    height: 100%;
+}
+
+.book .page img {
+    max-width: 100%;
+    height: 100%;
+}
